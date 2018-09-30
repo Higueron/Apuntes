@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+    <h1>Empresa</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ empresa.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ empresa.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ empresa.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ empresa.email }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ empresa.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>{{ empresa.tutor }}</td>
+            </tr>
+            <tr>
+                <th>Tecnologias</th>
+                <td>{% if empresa.tecnologias %}{{ empresa.tecnologias|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ empresa.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Perfilbuscado</th>
+                <td>{{ empresa.perfilBuscado }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ empresa.password }}</td>
+            </tr>
+            <tr>
+                <th>Isactive</th>
+                <td>{% if empresa.isActive %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Rol</th>
+                <td>{{ empresa.rol }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('empresa_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('empresa_edit', { 'id': empresa.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

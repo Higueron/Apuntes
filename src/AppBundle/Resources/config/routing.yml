@@ -1,0 +1,17 @@
+app_principal:
+    path:     /
+    defaults: { _controller: "AppBundle:Principal:index" }
+    methods:  [GET, POST]
+
+app_alumno:
+    resource: "@AppBundle/Resources/config/routing/alumno.yml"
+    prefix:   /alumno
+
+app_profesor:
+    resource: "@AppBundle/Resources/config/routing/profesor.yml"
+    prefix:   /profesor
+
+app_empresa:
+    resource: "@AppBundle/Resources/config/routing/empresa.yml"
+    prefix:   /empresa
+
