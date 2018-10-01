@@ -15,3 +15,6 @@ app_empresa:
     resource: "@AppBundle/Resources/config/routing/empresa.yml"
     prefix:   /Backend/empresa
 
+app_registro_Y_login:
+    resource: "@AppBundle/Resources/config/routing/registroYlogin.yml"
+    prefix:   /

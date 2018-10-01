@@ -1,0 +1,4 @@
+registro:
+    path:     /registro
+    defaults: { _controller: "AppBundle:Principal:registro" }
+    methods:  [GET, POST]
