@@ -24,77 +24,77 @@ class Empresa
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=255)
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=true)
      */
     private $nombre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="telefono", type="string", length=255)
+     * @ORM\Column(name="telefono", type="string", length=255, nullable=true)
      */
     private $telefono;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=false, unique=true)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="direccion", type="string", length=255)
+     * @ORM\Column(name="direccion", type="string", length=255, nullable=true)
      */
     private $direccion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tutor", type="string", length=255)
+     * @ORM\Column(name="tutor", type="string", length=255, nullable=true)
      */
     private $tutor;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tecnologias", type="string", length=255)
+     * @ORM\Column(name="tecnologias", type="string", length=255, nullable=true)
      */
     private $tecnologias;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="string", length=255)
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
      */
     private $descripcion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="perfilBuscado", type="string", length=255)
+     * @ORM\Column(name="perfilBuscado", type="string", length=255, nullable=true)
      */
     private $perfilBuscado;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=255)
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
     private $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="isActive", type="boolean", length=255)
+     * @ORM\Column(name="isActive", type="boolean", length=255, nullable=true)
      */
     private $isActive;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rol", type="string", length=255)
+     * @ORM\Column(name="rol", type="string", length=255, nullable=false)
      */
     private $rol = 'ROL_EMPRESA';
 

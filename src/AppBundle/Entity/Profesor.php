@@ -24,49 +24,49 @@ class Profesor
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=255)
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=true)
      */
     private $nombre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellidos", type="string", length=255)
+     * @ORM\Column(name="apellidos", type="string", length=255, nullable=true)
      */
     private $apellidos;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=false, unique=true)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=255)
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
     private $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="isActive", type="boolean", length=255)
+     * @ORM\Column(name="isActive", type="boolean", length=255, nullable=true)
      */
     private $isActive;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="departamento", type="string", length=255, columnDefinition="ENUM('Administrativo', 'Programador')")
+     * @ORM\Column(name="departamento", type="string", length=255, nullable=true)
      */
     private $departamento;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rol", type="string", length=255, columnDefinition="ENUM('ROL_PROFESOR', 'ROL_ADMINISTRADOR')")
+     * @ORM\Column(name="rol", type="string", length=255, nullable=false)
      */
     private $rol;
 

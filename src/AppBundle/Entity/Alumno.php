@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Alumno
 {
+
     /**
      * @var int
      *
@@ -24,80 +25,91 @@ class Alumno
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=255)
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=true)
      */
     private $nombre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellidos", type="string", length=255)
+     * @ORM\Column(name="apellidos", type="string", length=255, nullable=true)
      */
     private $apellidos;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="dni", type="string", length=255)
+     * @ORM\Column(name="dni", type="string", length=255, nullable=true, unique=true)
      */
     private $dni;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=false, unique=true)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rama", type="string", length=255, columnDefinition="ENUM('Administrativo', 'Programador')")
+     * @ORM\Column(name="rama", type="string", length=255, nullable=true)
      */
     private $rama;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="isActive", type="boolean", length=255 , options={"default":0})
+     * @ORM\Column(name="isActive", type="boolean", length=255, nullable=true)
      */
     private $isActive;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="preferencias", type="string", length=255)
+     * @ORM\Column(name="preferencias", type="string", length=255, nullable=true)
      */
     private $preferencias;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rol", type="string", length=255)
+     * @ORM\Column(name="rol", type="string", length=255, nullable=false)
      */
-    private $rol = 'ROL_ALUMNO';
+    private $rol;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="telefono", type="string", length=255)
+     * @ORM\Column(name="telefono", type="string", length=255, nullable=true)
      */
     private $telefono;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="estado", type="string", length=255, columnDefinition="ENUM('Estudiante', 'Desempleado')")
+     * @ORM\Column(name="estado", type="string", length=255, nullable=true)
      */
     private $estado;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=255)
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
     private $password;
 
+    /*public function __construct(){
+        $this->apellidos='';
+        $this->nombre='';
+        $this->dni='';
+        $this->isActive=0;
+        $this->preferencias='';
+        $this->rol = 'ROL_ALUMNO';
+        $this->telefono='';
+        $this->estado='';
+        $this->rama='';
+    }*/
 
     /**
      * Get id
