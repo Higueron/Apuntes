@@ -1,5 +1,60 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{{ parent() }}
+    <div class="container">
+        <div class="col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Contraseña</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu contraseña">
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+                <button id="aparece" type="button" class="btn btn-primary">Registrate</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="hidden" id="formulario_invisible">
+                <div class="form-group" id="formulario_registro">
+                    <label for="exampleInputEmail2">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Escribe tu Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword2">Contraseña</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Escribe tu contraseña">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputSelect1">Perfil</label>
+                    <select class="form-control">
+                        <option>Seleccione su Perfil</option>
+                        <option value="ROL_ALUMNO">Alumno</option>
+                        <option value="ROL_PROFESOR">Profesor </option>
+                        <option value="ROL_EMPRESA">Empresa</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </form>
+        </div>
+    </div>
+    {% block javascripts %}
+        {{ parent() }}
+        <script>
+            $(function () {
+                $("#aparece").on("click", function () {
+
+                    $("#aparece").addClass("hidden");
+                    var email = $("#exampleInputEmail1").val();
+                    var password = $("#exampleInputPassword1").val();
+
+                    $("#exampleInputEmail2").val(email);
+                    $("#exampleInputPassword2").val(password);
+
+                    $("#formulario_invisible").removeClass();
+                });
+            });
+        </script>
+    {% endblock %}
 {% endblock %}

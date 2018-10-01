@@ -5,13 +5,13 @@ app_principal:
 
 app_alumno:
     resource: "@AppBundle/Resources/config/routing/alumno.yml"
-    prefix:   /alumno
+    prefix:   /Backend/alumno
 
 app_profesor:
     resource: "@AppBundle/Resources/config/routing/profesor.yml"
-    prefix:   /profesor
+    prefix:   /Backend/profesor
 
 app_empresa:
     resource: "@AppBundle/Resources/config/routing/empresa.yml"
-    prefix:   /empresa
+    prefix:   /Backend/empresa
 

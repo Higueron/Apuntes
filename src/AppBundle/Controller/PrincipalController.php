@@ -9,9 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 class PrincipalController extends Controller
 {
 
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-
         return $this->render('principal/index.html.twig');
+    }
+
+    public function registroAction(Request $request){
+
     }
 }
