@@ -59,14 +59,14 @@ class Alumno
     /**
      * @var string
      *
-     * @ORM\Column(name="isActive", type="boolean", length=255)
+     * @ORM\Column(name="isActive", type="boolean", length=255 , options={"default":0})
      */
     private $isActive;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="preferencias", type="array", length=255)
+     * @ORM\Column(name="preferencias", type="string", length=255)
      */
     private $preferencias;
 

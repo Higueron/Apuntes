@@ -4,6 +4,20 @@
     <div class="container">
         <div class="col-md-6">
             <form>
+                <div class="page-header">
+                    <h3>
+                        Login
+                    </h3>
+                </div>
+                {% if errorB==true %}
+                    <div class="text-danger">
+                        <p>
+                            <strong>
+                                {{ error }}
+                            </strong>
+                        </p>
+                    </div>
+                {% endif %}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu Email">
@@ -18,6 +32,11 @@
         </div>
         <div class="col-md-6">
             <form class="hidden" id="formulario_invisible" action="{{ path('registro') }}" method="POST">
+                <div class="page-header">
+                    <h3>
+                        Registrate
+                    </h3>
+                </div>
                 <div class="form-group" id="formulario_registro">
                     <label for="exampleInputEmail2">Email</label>
                     <input name="email" type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Escribe tu Email">
@@ -29,7 +48,8 @@
                 <div class="form-group">
                     <label for="exampleInputSelect1">Perfil</label>
                     <select name="role" class="form-control">
-                        <option value="ROL_PROFESOR">Profesor </option>
+                        <option value="ROL_PROFESOR">Profesor
+                        </option>
                         <option value="ROL_ALUMNO">Alumno</option>
                         <option value="ROL_EMPRESA">Empresa</option>
                     </select>

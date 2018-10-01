@@ -59,7 +59,7 @@ class Empresa
     /**
      * @var string
      *
-     * @ORM\Column(name="tecnologias", type="array", length=255)
+     * @ORM\Column(name="tecnologias", type="string", length=255)
      */
     private $tecnologias;
 

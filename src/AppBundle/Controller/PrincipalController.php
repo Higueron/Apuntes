@@ -11,7 +11,9 @@ class PrincipalController extends Controller
 
     public function indexAction()
     {
-        return $this->render('principal/index.html.twig');
+        $errorB=false;
+        $error="Usuario ya registrado";
+        return $this->render('principal/index.html.twig', array('error' => $error, 'errorB' => $errorB));
     }
 
     public function registroAction(Request $request){
@@ -24,7 +26,15 @@ class PrincipalController extends Controller
         $existeProfesor = $em->getRepository('AppBundle:Profesor')->findOneBy(['email' => $data['email']]);
         $existeEmpresa = $em->getRepository('AppBundle:Empresa')->findOneBy(['email' => $data['email']]);
 
-        if($existeAlumno==null && $existeEmpresa==null && $existeProfesor==null){
+        $existe=false;
+
+        if($existeAlumno != null || $existeProfesor != null || $existeEmpresa != null){
+            $existe=true;
+        }else{
+            $existe=false;
+        }
+
+        if($existe==false){
 
             if($data['role']=='ROL_ALUMNO'){
                 return $this->render('principal/alumnoIndex.html.twig', array(
@@ -43,13 +53,13 @@ class PrincipalController extends Controller
                     ));
                 }
         }else{
+
             $error="Usuario ya registrado";
+            $errorB=true;
             return $this->render('principal/index.html.twig', array(
-                'error' => $error
+                'error' => $error,
+                'errorB' => $errorB
             ));
         }
-
-
-
     }
 }
