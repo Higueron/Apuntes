@@ -3,13 +3,13 @@
 {% block body %}
     <div class="container">
         <div class="col-md-6">
-            <form>
+            <form method="POST" action="{{ path('login') }}">
                 <div class="page-header">
                     <h3>
                         Login
                     </h3>
                 </div>
-                {% if errorB==true %}
+                {% if errorB == true %}
                     <div class="text-danger">
                         <p>
                             <strong>
@@ -20,11 +20,11 @@
                 {% endif %}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu Email">
+                    <input name="email_login" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu Email">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu contraseña">
+                    <input name="password_login" type="password" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu contraseña">
                 </div>
                 <button type="submit" class="btn btn-primary">Entrar</button>
                 <button id="aparece" type="button" class="btn btn-primary">Registrate</button>

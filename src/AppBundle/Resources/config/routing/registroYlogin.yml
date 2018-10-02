@@ -2,3 +2,8 @@ registro:
     path:     /registro/check
     defaults: { _controller: "AppBundle:Principal:registro" }
     methods:  [GET, POST]
+
+login:
+    path:     /registro/login
+    defaults: { _controller: "AppBundle:Principal:login" }
+    methods:  [GET, POST]

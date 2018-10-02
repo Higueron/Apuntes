@@ -98,6 +98,9 @@ class Empresa
      */
     private $rol = 'ROL_EMPRESA';
 
+    public function __construct(){
+
+    }
 
     /**
      * Get id

@@ -70,6 +70,9 @@ class Profesor
      */
     private $rol;
 
+    public function __construct(){
+
+    }
 
     /**
      * Get id

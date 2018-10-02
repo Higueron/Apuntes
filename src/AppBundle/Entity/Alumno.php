@@ -99,17 +99,9 @@ class Alumno
      */
     private $password;
 
-    /*public function __construct(){
-        $this->apellidos='';
-        $this->nombre='';
-        $this->dni='';
-        $this->isActive=0;
-        $this->preferencias='';
-        $this->rol = 'ROL_ALUMNO';
-        $this->telefono='';
-        $this->estado='';
-        $this->rama='';
-    }*/
+    public function __construct(){
+
+    }
 
     /**
      * Get id
