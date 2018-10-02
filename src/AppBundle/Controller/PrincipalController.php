@@ -14,6 +14,7 @@ class PrincipalController extends Controller
 
     public function indexAction()
     {
+
         $errorB=false;
         $error="Usuario ya registrado";
         return $this->render('principal/index.html.twig', array('error' => $error, 'errorB' => $errorB));
@@ -87,15 +88,15 @@ class PrincipalController extends Controller
 
                 if($rol=='ROL_ALUMNO'){
                     return $this->forward('AppBundle:AlumnoFront:index', array(
-                        'email'=>$email, 'password'=>$password, 'rol'=>$rol
+                        'email'=>$email, 'password'=>$password_codificada, 'rol'=>$rol
                     ));
                 }elseif($rol=='ROL_PROFESOR'){
                     return $this->forward('AppBundle:ProfesorFront:index', array(
-                        'email'=>$email, 'password'=>$password, 'rol'=>$rol
+                        'email'=>$email, 'password'=>$password_codificada, 'rol'=>$rol
                     ));
                 }else{
                     return $this->forward('AppBundle:EmpresaFront:index', array(
-                        'email'=>$email, 'password'=>$password, 'rol'=>$rol
+                        'email'=>$email, 'password'=>$password_codificada, 'rol'=>$rol
                     ));
                 }
 

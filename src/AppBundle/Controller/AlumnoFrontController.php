@@ -7,8 +7,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AlumnoFrontController extends Controller
 {
-    public function indexAction(){
-        return $this->render('principal/alumnoIndex.html.twig');
+    public function indexAction(Request $request, $password, $email, $rol){
+        
+        $data = $request->request->all();
+
+        return $this->render('principal/alumnoIndex.html.twig', array(
+            'email'=>$email
+        ));
 
     }
 }

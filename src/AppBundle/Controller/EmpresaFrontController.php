@@ -9,8 +9,13 @@ use Symfony\Component\HttpFoundation\Request;
 class EmpresaFrontController extends Controller
 {
 
-    public function indexAction(){
-        return $this->render('principal/empresaIndex.html.twig');
+    public function indexAction(Request $request, $password, $email, $rol){
+       
+        $data = $request->request->all();
+
+        return $this->render('principal/empresaIndex.html.twig', array(
+            'email'=>$email
+        ));
 
     }
 }
