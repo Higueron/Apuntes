@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{{parent()}}
+    <div class="container">
+        <div class="text-danger" id="alerta"></div>
+        <div class="col-md-6">
+            <form method="POST">
+                <div class="page-header">
+                    <h3>
+                        Completa tu perfil
+                    </h3>
+                </div>
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input name="" type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Nombre" required="required">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Apellidos</label>
+                    <input name="" type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Apellidos" required="required">
+                </div>
+                <div class="form-group">
+                    <label for="">DNI</label>
+                    <input name="" type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="DNI" required="required">
+                </div>
+                <div class="form-group">
+                    <label for="">Telefono</label>
+                    <input name="" type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Telefono" required="required">
+                </div>
+                <div class="form-group">
+                    <label for="">Rama</label>
+                    <select required="required" class="form-control">
+                        <option value="Informatica">Informatica</option>
+                        <option value="Administracion">Administracion</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Rama</label>
+                    <select required="required" class="form-control">
+                        <option value="Estudiante">Estudiante</option>
+                        <option value="Trabajador">Trabajador</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Preferencias</label>
+                    <textarea placeholder="Escriba sus preferencias sobre la empresa como lenguaje de programacion etc.." rows="5" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">editar</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

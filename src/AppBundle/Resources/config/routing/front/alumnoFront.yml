@@ -1,0 +1,9 @@
+alumno_formulario:
+    path:     /editar/alumno
+    defaults: { _controller: "AppBundle:AlumnoFront:vistaFormulario" }
+    methods:  [GET, POST]
+
+alumno_update:
+    path:     /editar/alumno/update
+    defaults: { _controller: "AppBundle:AlumnoFront:update" }
+    methods:  [GET, POST]
