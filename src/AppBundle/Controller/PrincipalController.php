@@ -20,6 +20,15 @@ class PrincipalController extends Controller
         return $this->render('principal/index.html.twig', array('error' => $error, 'errorB' => $errorB));
     }
 
+    public function logoutAction(){
+        $errorB=false;
+        $error=null;
+        $_SESSION['email']='';
+        $_SESSION['rol']='';
+        session_destroy();
+        return $this->render('principal/index.html.twig', array('error' => $error, 'errorB' => $errorB));
+    }
+
     public function loginAction(Request $request){
 
         $data = $request->request->all();
@@ -87,14 +96,20 @@ class PrincipalController extends Controller
             if($email==$data['email_login'] && $password==$password_codificada){
 
                 if($rol=='ROL_ALUMNO'){
+                    $_SESSION['email']=$email;
+                    $_SESSION['rol']=$rol;
                     return $this->forward('AppBundle:AlumnoFront:index', array(
                         'email'=>$email, 'password'=>$password_codificada, 'rol'=>$rol
                     ));
                 }elseif($rol=='ROL_PROFESOR'){
+                    $_SESSION['email']=$email;
+                    $_SESSION['rol']=$rol;
                     return $this->forward('AppBundle:ProfesorFront:index', array(
                         'email'=>$email, 'password'=>$password_codificada, 'rol'=>$rol
                     ));
                 }else{
+                    $_SESSION['email']=$email;
+                    $_SESSION['rol']=$rol;
                     return $this->forward('AppBundle:EmpresaFront:index', array(
                         'email'=>$email, 'password'=>$password_codificada, 'rol'=>$rol
                     ));

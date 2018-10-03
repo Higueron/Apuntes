@@ -2,6 +2,16 @@
 
 {% block body %}
     <div class="container">
+        <div class="text-danger" id="alerta"></div>
+        {% if errorB == true %}
+            <div class="text-danger">
+                <p>
+                    <strong>
+                        {{ error }}
+                    </strong>
+                </p>
+            </div>
+        {% endif %}
         <div class="col-md-6">
             <form method="POST" action="{{ path('login') }}">
                 <div class="page-header">
@@ -9,22 +19,13 @@
                         Login
                     </h3>
                 </div>
-                {% if errorB == true %}
-                    <div class="text-danger">
-                        <p>
-                            <strong>
-                                {{ error }}
-                            </strong>
-                        </p>
-                    </div>
-                {% endif %}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input name="email_login" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu Email">
+                    <input name="email_login" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu Email" required="required">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Contraseña</label>
-                    <input name="password_login" type="password" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu contraseña">
+                    <input name="password_login" type="password" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu contraseña" required="required">
                 </div>
                 <button type="submit" class="btn btn-primary">Entrar</button>
                 <button id="aparece" type="button" class="btn btn-primary">Registrate</button>
@@ -39,21 +40,20 @@
                 </div>
                 <div class="form-group" id="formulario_registro">
                     <label for="exampleInputEmail2">Email</label>
-                    <input name="email" type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Escribe tu Email">
+                    <input name="email" type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Escribe tu Email" required="required">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword2">Contraseña</label>
-                    <input name="password" type="password" class="form-control" id="exampleInputPassword2" placeholder="Escribe tu contraseña">
+                    <input name="password" type="password" class="form-control" id="exampleInputPassword2" placeholder="Escribe tu contraseña" required="required">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword2">Repite tu Contraseña</label>
-                    <input name="password2" type="password" class="form-control" id="exampleInputPassword3" placeholder="Escribe tu contraseña">
+                    <input name="password2" type="password" class="form-control" id="exampleInputPassword3" placeholder="Escribe tu contraseña" required="required">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputSelect1">Perfil</label>
-                    <select name="role" class="form-control">
-                        <option value="ROL_PROFESOR">Profesor
-                        </option>
+                    <select name="role" class="form-control" required="required">
+                        <option value="ROL_PROFESOR">Profesor</option>
                         <option value="ROL_ALUMNO">Alumno</option>
                         <option value="ROL_EMPRESA">Empresa</option>
                     </select>
@@ -76,7 +76,41 @@
                     $("#exampleInputPassword2").val(password);
 
                     $("#formulario_invisible").removeClass();
+
                 });
+
+                $("#exampleInputPassword3").on("blur", function () {
+
+                    var password = $("#exampleInputPassword2").val();
+                    var password2 = $("#exampleInputPassword3").val();
+
+                    var error = true;
+
+                    if (password != password2 && password != '') {
+
+                        error = true;
+
+                    } else {
+
+                        error = false;
+
+                    }
+
+                    if (error == true) {
+
+                        var texto = 'las contraseñas no coinciden';
+
+                        $("#alerta").text(texto);
+
+                    } else {
+
+                        var texto = '';
+
+                        $("#alerta").empty();
+
+                    }
+                });
+
             });
         </script>
     {% endblock %}

@@ -4,6 +4,11 @@ registro:
     methods:  [GET, POST]
 
 login:
-    path:     /registro/login
+    path:     /principal
     defaults: { _controller: "AppBundle:Principal:login" }
+    methods:  [GET, POST]
+
+logout:
+    path:     /
+    defaults: { _controller: "AppBundle:Principal:logout" }
     methods:  [GET, POST]
