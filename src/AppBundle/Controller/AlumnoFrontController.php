@@ -24,6 +24,7 @@ class AlumnoFrontController extends Controller
             'email'=>$_SESSION['email']
         ));
     }
+
     public function updateAction(Request $request){
 
         $data_form=$request->request->all();
@@ -43,7 +44,6 @@ class AlumnoFrontController extends Controller
             $em->persist($row);
             $em->flush();
         }
-
         
         $email=$_SESSION['email'];
 
